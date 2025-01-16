@@ -1,0 +1,2 @@
+res/spine_s_common_part.atlas.txt
+res/spine_s_common_part.skel

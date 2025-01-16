@@ -1,0 +1,9 @@
+# dependencies
+node_modules/
+package-lock.json
+# log files
+logs/
+tables/*.json
+# test files
+test*
+out*

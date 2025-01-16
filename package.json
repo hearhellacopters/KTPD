@@ -1,0 +1,40 @@
+{
+    "name": "ktpd_unpacker",
+    "version": "1.0.0",
+    "description": "KTPD file unpacker tool",
+    "main": "app.js",
+    "scripts": {
+      "start": "node --trace-warnings --trace-deprecation app.js",
+      "test": "node --trace-warnings app.js --package_info=\"PACKAGE_INFO.BIN\"",
+      "build": "node --enable-source-maps --trace-deprecation build.win64.js",
+      "build:mac:x64": "pkg . --compress GZip --targets node18-macos-x64 -o dissida_filelist-x64 && codesign --sign - dissida_filelist-x64",
+      "build:mac:arm": "pkg . --compress GZip --targets node18-macos-arm64 -o dissida_filelist-arm64 && codesign --sign - dissida_filelist-arm64",
+      "build:linux": "pkg . --compress GZip --targets node16-linux-x64 -o dissida_filelist-x64",
+      "build:win64": "node build.win64.js",
+      "build:win32": "node build.win32.js"
+    },
+    "author": "HearHellacopters",
+    "license": "ISC",
+    "dependencies": {
+      "@inquirer/prompts": "^7.1.0",
+      "bireader": "^1.0.58",
+      "keypress": "github:hearhellacopters/keypress",
+      "pkg-fetch": "^3.5.2"
+    },
+    "engines": {
+      "node": ">=18.0.0"
+    },
+    "overrides": {
+      "node-fetch@2.x": {
+        "whatwg-url": "14.x"
+      }
+    },
+    "devDependencies": {
+      "@hearhellacopters/exe": "^2.1.4",
+      "@types/node": "^20.14.11",
+      "@yao-pkg/pkg": "^5.15.0",
+      "commander": "^12.1.0",
+      "eslint-plugin-jsdoc": "^50.5.0"
+    }
+  }
+  
